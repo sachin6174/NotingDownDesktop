@@ -31,22 +31,34 @@ struct NotesListView: View {
                     .padding(AppStyle.padding)
                     .background(Color.gray.opacity(0.05))
 
-                List(filteredNotes, selection: $selectedNote) { note in
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(note.title ?? "Untitled")
-                            .font(.headline)
-                            .foregroundColor(AppStyle.Colors.textPrimary)
-                        Text(note.noteDescription ?? "")
-                            .font(.subheadline)
-                            .foregroundColor(AppStyle.Colors.textSecondary)
-                            .lineLimit(2)
+                ScrollViewReader { proxy in  // Add this ScrollViewReader
+                    List(filteredNotes, selection: $selectedNote) { note in
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(note.title ?? "Untitled")
+                                .font(.headline)
+                                .foregroundColor(
+                                    selectedNote?.id == note.id
+                                        ? .blue : AppStyle.Colors.textPrimary
+                                )
+                            Text(note.noteDescription ?? "")
+                                .font(.subheadline)
+                                .foregroundColor(AppStyle.Colors.textSecondary)
+                                .lineLimit(2)
+                        }
+                        .padding(.vertical, 8)
+                        .contentShape(Rectangle())
+                        .id(note.id)  // Add this line to make the item identifiable for scrolling
                     }
-                    .padding(.vertical, 8)
-                    .contentShape(Rectangle())
-                    .highlightedWhenSelected(selectedNote?.id == note.id)
+                    .listStyle(.sidebar)
+                    .scrollContentBackground(.hidden)
+                    .onChange(of: selectedNote) { newNote in
+                        if let noteId = newNote?.id {
+                            withAnimation {
+                                proxy.scrollTo(noteId, anchor: .center)
+                            }
+                        }
+                    }
                 }
-                .listStyle(.sidebar)
-                .scrollContentBackground(.hidden)
             }
             .frame(width: 280)
             .navigationTitle("Notes")

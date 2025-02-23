@@ -2,6 +2,7 @@ import SwiftUI
 
 extension Color {
     static let appBackground = Color(hex: "#4ebb78")
+    static let selectionBlue = Color(hex: "#007AFF")  // Add this line
 }
 
 extension Color {

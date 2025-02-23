@@ -5,7 +5,7 @@ struct SelectionHighlightModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .background(isSelected ? Color.appBackground.opacity(0.3) : Color.clear)
+            .background(isSelected ? Color.selectionBlue.opacity(0.2) : Color.clear)
             .cornerRadius(6)
     }
 }
