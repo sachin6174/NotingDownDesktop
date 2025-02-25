@@ -47,7 +47,10 @@ struct NoteEditorView: View {
             toolbarContent
         }
         .onAppear(perform: loadNoteData)
-        .onChange(of: note, perform: updateNoteData)
+        .onChange(of: note) { _, newValue in
+            updateNoteData(newValue)
+        }
+        .id(note?.id ?? UUID())  // Use note.id instead of note.objectID
         .alert("Delete Note?", isPresented: $showingDeleteAlert) {
             Button("Delete", role: .destructive) {
                 if let noteToDelete = note {
@@ -81,10 +84,11 @@ struct NoteEditorView: View {
 
                 TextField("Enter title", text: $title)
                     .textFieldStyle(.plain)
-                    .padding(10)
-                    .background(AppStyle.Colors.inputBackground)
+                    .font(.body)
+                    .padding(8)
+                    .background(Color(.textBackgroundColor))
                     .cornerRadius(AppStyle.cornerRadius)
-                    .onChange(of: title) { newValue in
+                    .onChange(of: title) { oldValue, newValue in
                         if newValue.count > maxTitleLength {
                             title = String(newValue.prefix(maxTitleLength))
                         }
@@ -107,10 +111,11 @@ struct NoteEditorView: View {
                 TextEditor(text: $noteDescription)
                     .font(.body)
                     .scrollContentBackground(.hidden)
-                    .background(AppStyle.Colors.inputBackground)
+                    .padding(8)
+                    .background(Color(.textBackgroundColor))
                     .cornerRadius(AppStyle.cornerRadius)
                     .frame(maxWidth: .infinity, minHeight: 200)
-                    .onChange(of: noteDescription) { newValue in
+                    .onChange(of: noteDescription) { oldValue, newValue in
                         if newValue.count > maxDescriptionLength {
                             noteDescription = String(newValue.prefix(maxDescriptionLength))
                         }
