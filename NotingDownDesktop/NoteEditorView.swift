@@ -50,7 +50,6 @@ struct NoteEditorView: View {
         .onChange(of: note) { _, newValue in
             updateNoteData(newValue)
         }
-        .id(note?.id ?? UUID())  // Use note.id instead of note.objectID
         .alert("Delete Note?", isPresented: $showingDeleteAlert) {
             Button("Delete", role: .destructive) {
                 if let noteToDelete = note {
@@ -90,7 +89,9 @@ struct NoteEditorView: View {
                     .cornerRadius(AppStyle.cornerRadius)
                     .onChange(of: title) { oldValue, newValue in
                         if newValue.count > maxTitleLength {
-                            title = String(newValue.prefix(maxTitleLength))
+                            DispatchQueue.main.async {
+                                title = String(newValue.prefix(maxTitleLength))
+                            }
                         }
                     }
             }
@@ -117,7 +118,9 @@ struct NoteEditorView: View {
                     .frame(maxWidth: .infinity, minHeight: 200)
                     .onChange(of: noteDescription) { oldValue, newValue in
                         if newValue.count > maxDescriptionLength {
-                            noteDescription = String(newValue.prefix(maxDescriptionLength))
+                            DispatchQueue.main.async {
+                                noteDescription = String(newValue.prefix(maxDescriptionLength))
+                            }
                         }
                     }
             }
