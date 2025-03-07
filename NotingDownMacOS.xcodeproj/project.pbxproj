@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		696170362D6A48A200BF4581 /* NotingDownDesktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotingDownDesktop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		696170362D6A48A200BF4581 /* NotingDownMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotingDownMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -40,7 +40,7 @@
 		696170372D6A48A200BF4581 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				696170362D6A48A200BF4581 /* NotingDownDesktop.app */,
+				696170362D6A48A200BF4581 /* NotingDownMacOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		696170352D6A48A200BF4581 /* NotingDownDesktop */ = {
+		696170352D6A48A200BF4581 /* NotingDownMacOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 696170452D6A48A400BF4581 /* Build configuration list for PBXNativeTarget "NotingDownDesktop" */;
+			buildConfigurationList = 696170452D6A48A400BF4581 /* Build configuration list for PBXNativeTarget "NotingDownMacOS" */;
 			buildPhases = (
 				696170322D6A48A200BF4581 /* Sources */,
 				696170332D6A48A200BF4581 /* Frameworks */,
@@ -63,11 +63,11 @@
 			fileSystemSynchronizedGroups = (
 				696170382D6A48A200BF4581 /* NotingDownDesktop */,
 			);
-			name = NotingDownDesktop;
+			name = NotingDownMacOS;
 			packageProductDependencies = (
 			);
 			productName = NotingDownDesktop;
-			productReference = 696170362D6A48A200BF4581 /* NotingDownDesktop.app */;
+			productReference = 696170362D6A48A200BF4581 /* NotingDownMacOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 696170312D6A48A200BF4581 /* Build configuration list for PBXProject "NotingDownDesktop" */;
+			buildConfigurationList = 696170312D6A48A200BF4581 /* Build configuration list for PBXProject "NotingDownMacOS" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				696170352D6A48A200BF4581 /* NotingDownDesktop */,
+				696170352D6A48A200BF4581 /* NotingDownMacOS */,
 			);
 		};
 /* End PBXProject section */
@@ -306,7 +306,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		696170312D6A48A200BF4581 /* Build configuration list for PBXProject "NotingDownDesktop" */ = {
+		696170312D6A48A200BF4581 /* Build configuration list for PBXProject "NotingDownMacOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				696170432D6A48A400BF4581 /* Debug */,
@@ -315,7 +315,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		696170452D6A48A400BF4581 /* Build configuration list for PBXNativeTarget "NotingDownDesktop" */ = {
+		696170452D6A48A400BF4581 /* Build configuration list for PBXNativeTarget "NotingDownMacOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				696170462D6A48A400BF4581 /* Debug */,
